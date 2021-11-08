@@ -41,8 +41,13 @@ TEST_CASE("Empty Uri Test")
 TEST_CASE("Uri Beginning With Dot Interpreted As Image")
 {
     auto testAction = [](){pangolin::OpenVideo(".");};
+#ifdef _WIN32
+    ExpectExceptionWithMessageFromAction<pangolin::VideoException>(testAction,
+         "No files found for wildcard '.'");
+#else
     ExpectExceptionWithMessageFromAction<std::runtime_error>(testAction,
          "Unsupported image file type");
+#endif
 }
 
 TEST_CASE("Uri Dimension Legal Separator Character")
