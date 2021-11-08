@@ -17,11 +17,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - os: ubuntu-20.04
-          package_manager: "apt-get"
+        #- os: ubuntu-20.04
+        #  package_manager: "apt-get"
 
-        - os: macos-11.0
-          package_manager: "brew"
+        #- os: macos-11.0
+        #  package_manager: "brew"
 
         - os: windows-2019
           package_manager: "vcpkg"
